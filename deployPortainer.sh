@@ -10,6 +10,6 @@ dockerUser=$1;
 [ -z "$dockerUser" ] && echo "###Please pass username...!!!">>deployPortainer.log && exit 0 || echo "Deploying Portainer for user $dockerUser">>deployPortainer.log;
 
 #Deploying container
-sudo docker run -d -p 9000:9000 --name=portainer  --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /home/$dockerUser/docker/portainer/data:/data portainer/portainer-ce;
+docker run -d -p 9000:9000 --name=portainer  --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /home/$dockerUser/docker/portainer/data:/data portainer/portainer-ce;
 echo "###Portainer deployment successfull...!!!">>deployPortainer.log;
 exit 0
